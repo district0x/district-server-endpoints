@@ -78,7 +78,7 @@ Registers DELETE endpoint.
 Registers endpoint of any method that's supported by expressjs.
 
 ## district.server.endpoints.middleware.defaults
-Default middlewares that comes with endpoints component are defined here. If you want to use only subset of them, choose from following and pass it to `:default-middlewares` at mount start.  
+Default middlewares that comes with endpoints component are defined here. If you want to use only subset of them, choose from the following and pass it to `:default-middlewares` at mount start.  
 * `:middleware/cors` [cors](https://github.com/expressjs/cors) middleware  
 * `:middleware/urlencoded` [urlencoded](https://github.com/expressjs/body-parser) body parser  
 * `:middleware/text-body-parser-for-transit` passes body for "application/transit+json" as text  
