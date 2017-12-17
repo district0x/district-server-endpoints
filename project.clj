@@ -9,4 +9,5 @@
                  [mount "0.1.11"]
                  [org.clojure/clojurescript "1.9.946"]]
 
-  :npm {:dependencies [[express "4.15.3"]]})
+  :npm {:dependencies [[express "4.15.3"]
+                       [cors "2.8.4"]]})
