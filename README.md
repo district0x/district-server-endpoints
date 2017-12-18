@@ -40,7 +40,7 @@ Note: You need to define your endpoints with `reg-get!`, `reg-post!`, etc. befor
 
 ## Component dependencies
 ### [district-server-config](https://github.com/district0x/district-server-config)
-`district-server-endpoints` can get initial args from config provided by `district-server-config/config` under the key `:endpoints`. These args are then merged together by ones passed to `mount/with-args`.
+`district-server-endpoints` gets initial args from config provided by `district-server-config/config` under the key `:endpoints`. These args are then merged together with ones passed to `mount/with-args`.
 
 If you wish to use custom components instead of dependencies above while still using `district-server-endpoints`, you can easily do so by [mount's states swapping](https://github.com/tolitius/mount#swapping-states-with-states).
 
