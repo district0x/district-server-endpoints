@@ -1,9 +1,11 @@
 # district-server-endpoints
 
+[![Build Status](https://travis-ci.org/district0x/district-server-endpoints.svg?branch=master)](https://travis-ci.org/district0x/district-server-endpoints)
+
 Clojurescript-node.js [mount](https://github.com/tolitius/mount) component for a district server, that takes care of HTTP server and its endpoints. This component currently utilises [expressjs](https://expressjs.com/) as an underlying HTTP server.
 
 ## Installation
-Add `[district0x/district-server-endpoints "1.0.0"]` into your project.clj  
+Add `[district0x/district-server-endpoints "1.0.1"]` into your project.clj  
 Include `[district.server.endpoints]` in your CLJS file, where you use `mount/start`
 
 **Warning:** district0x components are still in early stages, therefore API can change in a future.
@@ -75,9 +77,6 @@ Registers PUT endpoint.
 #### `reg-delete! [endpoint handler]`
 Registers DELETE endpoint.
 
-#### `reg-delete! [endpoint handler]`
-Registers DELETE endpoint.
-
 #### `reg-endpoint! [method endpoint handler]`
 Registers endpoint of any method that's supported by expressjs.
 
@@ -91,3 +90,16 @@ Default middlewares that comes with endpoints component are defined here. If you
 
 ## district.server.endpoints.middleware.logging
 Middleware that logs server requests and errors comes with this package, but it's not included in default middleware because it uses [timbre](https://github.com/ptaoussanis/timbre) for logging, which might not be good for everyone. If you do so, best way to set it up is via [district-server-logging](https://github.com/district0x/district-server-logging) mount component.
+## Development
+```bash
+# To start REPL and run tests
+lein deps
+lein repl
+(start-tests!)
+
+# In other terminal
+node tests-compiled/run-tests.js
+
+# To run tests without REPL
+lein doo node "tests" once
+```
