@@ -12,19 +12,19 @@ Include `[district.server.endpoints]` in your CLJS file, where you use `mount/st
 
 **Warning:** district0x modules are still in early stages, therefore API can change in a future.
 
-- [district.ui.endpoints](#districtuiendpoints)
-  - [::send](#send)
-  - [::status](#status)
-  - [::query-params](#query-params)
-  - [::route-params](#route-params)
-  - [::body](#body)
-  - [::reg-get!](#reg-get!)
-  - [::reg-post!](#reg-post!)
-  - [::reg-put!](#reg-put!)
-  - [::reg-delete!](#reg-delete!)
-  - [::reg-endpoint!](#reg-endpoint!)
-- [district.server.endpoints.middleware.defaults](#districtuiendpointsmiddlewaredefaults)
-- [district.server.endpoints.middleware.logging](#districtuiendpointsmiddlewarelogging)
+- [district.ui.endpoints](#districtserverendpoints)
+  - [send](#send)
+  - [status](#status)
+  - [query-params](#query-params)
+  - [route-params](#route-params)
+  - [body](#body)
+  - [reg-get!](#reg-get!)
+  - [reg-post!](#reg-post!)
+  - [reg-put!](#reg-put!)
+  - [reg-delete!](#reg-delete!)
+  - [reg-endpoint!](#reg-endpoint!)
+- [district.server.endpoints.middleware.defaults](#districtserverendpointsmiddlewarelogging)
+- [district.server.endpoints.middleware.logging](#districtserverendpointsmiddlewarelogging)
 
 ## Real-world example
 To see how district server modules play together in real-world app, you can take a look at [NameBazaar server folder](https://github.com/district0x/name-bazaar/tree/master/src/name_bazaar/server), 
