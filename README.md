@@ -23,7 +23,7 @@ Include `[district.server.endpoints]` in your CLJS file, where you use `mount/st
   - [reg-put!](#reg-put!)
   - [reg-delete!](#reg-delete!)
   - [reg-endpoint!](#reg-endpoint!)
-- [district.server.endpoints.middleware.defaults](#districtserverendpointsmiddlewarelogging)
+- [district.server.endpoints.middleware.defaults](#districtserverendpointsmiddlewaredefaults)
 - [district.server.endpoints.middleware.logging](#districtserverendpointsmiddlewarelogging)
 
 ## Real-world example
