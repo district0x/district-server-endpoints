@@ -5,7 +5,7 @@
 Clojurescript-node.js [mount](https://github.com/tolitius/mount) module for a district server, that takes care of HTTP server and its endpoints. This module currently utilises [expressjs](https://expressjs.com/) as an underlying HTTP server.
 
 ## Installation
-Add `[district0x/district-server-endpoints "1.0.1"]` into your project.clj  
+Add `[district0x/district-server-endpoints "1.0.2"]` into your project.clj  
 Include `[district.server.endpoints]` in your CLJS file, where you use `mount/start`
 
 ## API Overview
@@ -54,7 +54,10 @@ You can pass following args to endpoints module:
                      :middlewares [logging-middlewares]}})
     (mount/start))
 ```
-Note: You need to define your endpoints with `reg-get!`, `reg-post!`, etc. before you start mount. Endpoint definitions can be of course in different file and you just require it in main file.
+You need to define your endpoints with `reg-get!`, `reg-post!`, etc. before you start mount. Endpoint definitions can be of course in different file and you just require it in main file.
+
+For convenient parsing of query params values, we recommend using [district-parsers](https://github.com/district0x/district-parsers), 
+because Clojure types get lost along the way if you use standard format of query params.  
 
 ## Module dependencies
 ### [district-server-config](https://github.com/district0x/district-server-config)

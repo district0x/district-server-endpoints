@@ -1,4 +1,4 @@
-(defproject district0x/district-server-endpoints "1.0.1"
+(defproject district0x/district-server-endpoints "1.0.2"
   :description "district0x server component for setting up API endpoints"
   :url "https://github.com/district0x/district-server-endpoints"
   :license {:name "Eclipse Public License"
@@ -21,7 +21,8 @@
                                   [com.cemerick/piggieback "0.2.2"]
                                   [figwheel-sidecar "0.5.14"]
                                   [org.clojure/tools.nrepl "0.2.13"]
-                                  [cljs-http "0.1.43"]]
+                                  [cljs-http "0.1.43"]
+                                  [district0x/district-parsers "1.0.0"]]
                    :plugins [[lein-cljsbuild "1.1.7"]
                              [lein-figwheel "0.5.14"]
                              [lein-npm "0.6.2"]

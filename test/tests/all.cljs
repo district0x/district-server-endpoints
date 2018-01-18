@@ -4,6 +4,7 @@
     [cljs.core.async :refer [<!]]
     [cljs.nodejs :as nodejs]
     [cljs.test :refer-macros [deftest is testing use-fixtures async]]
+    [district.parsers :as parsers]
     [district.server.endpoints :refer [reg-get! reg-post! query-params send body]]
     [mount.core :as mount])
   (:require-macros [cljs.core.async.macros :refer [go]]))
@@ -30,9 +31,11 @@
         (mount/start))
 
 
-      (is (= (:body (<! (client/get "http://localhost:6239/my-endpoint"
-                                    {:headers {"Accept" "application/transit+json"}
-                                     :query-params {:greeting :greeting/hi}})))
+      (is (= (-> (<! (client/get "http://localhost:6239/my-endpoint"
+                                 {:headers {"Accept" "application/transit+json"}
+                                  :query-params {:greeting :greeting/hi}}))
+               :body
+               (update :greeting parsers/parse-keyword))
              {:greeting :greeting/hi}))
 
       (is (= (:status (<! (client/get "http://localhost:6239/my-endpoint"
