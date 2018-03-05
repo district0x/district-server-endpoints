@@ -5,7 +5,7 @@
 Clojurescript-node.js [mount](https://github.com/tolitius/mount) module for a district server, that takes care of HTTP server and its endpoints. This module currently utilises [expressjs](https://expressjs.com/) as an underlying HTTP server.
 
 ## Installation
-Add `[district0x/district-server-endpoints "1.0.2"]` into your project.clj  
+Add `[district0x/district-server-endpoints "1.0.3"]` into your project.clj  
 Include `[district.server.endpoints]` in your CLJS file, where you use `mount/start`
 
 ## API Overview
@@ -24,7 +24,6 @@ Include `[district.server.endpoints]` in your CLJS file, where you use `mount/st
   - [reg-delete!](#reg-delete!)
   - [reg-endpoint!](#reg-endpoint!)
 - [district.server.endpoints.middleware.defaults](#districtserverendpointsmiddlewaredefaults)
-- [district.server.endpoints.middleware.logging](#districtserverendpointsmiddlewarelogging)
 
 ## Real-world example
 To see how district server modules play together in real-world app, you can take a look at [NameBazaar server folder](https://github.com/district0x/name-bazaar/tree/master/src/name_bazaar/server), 
@@ -33,15 +32,15 @@ where this is deployed in production.
 ## Usage
 You can pass following args to endpoints module: 
 * `:port` Port at which HTTP server will start
-* `:middlewares` Collection of expressjs [middlewares](http://expressjs.com/en/guide/using-middleware.html) you want to install
+* `:middlewares` Collection of expressjs [middlewares](http://expressjs.com/en/guide/using-middleware.html) you want to install.
+See list of [district-server-middlewares](https://github.com/search?q=topic%3Adistrict-server-middleware+org%3Adistrict0x&type=Repositories).
 * `:default-middlewares` This module comes with few default middlewares. Each has an unique keyword key. If you want to use only some of default ones, you can pass collection of their keys here. 
 
 
 ```clojure
 (ns my-district
     (:require [mount.core :as mount]
-              [district.server.endpoints :refer [reg-get! send query-params]]
-              [district.server.endpoints.middleware.logging :refer [logging-middlewares]]))
+              [district.server.endpoints :refer [reg-get! send query-params]]))
 
   (reg-get! "/my-endpoint"
             (fn [req res]
@@ -50,8 +49,7 @@ You can pass following args to endpoints module:
                 (send res 400 "Bad Request"))))
 
   (-> (mount/with-args
-        {:endpoints {:port 6200
-                     :middlewares [logging-middlewares]}})
+        {:endpoints {:port 6200}})
     (mount/start))
 ```
 You need to define your endpoints with `reg-get!`, `reg-post!`, etc. before you start mount. Endpoint definitions can be of course in different file and you just require it in main file.
@@ -106,9 +104,6 @@ Default middlewares that comes with endpoints module are defined here. If you wa
 * `:middleware/text-body-parser-for-transit` passes body for "application/transit+json" as text  
 * `:middleware/transit-body-parser` parses transit body  
 * `:middleware/query-params-parser` parses query params  
-
-## district.server.endpoints.middleware.logging
-Middleware that logs server requests and errors comes with this package, but it's not included in default middleware because it uses [timbre](https://github.com/ptaoussanis/timbre) for logging, which might not be good for everyone. If you do so, best way to set it up is via [district-server-logging](https://github.com/district0x/district-server-logging) mount module.
 
 ## Development
 ```bash
